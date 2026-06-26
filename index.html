@@ -8,9 +8,36 @@
 </head>
 <body>
     <div class="container">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+        <div class="circle blue"></div>
+        <div class="circle yellow" id="yellowCircle"></div>
+        <div class="circle black" id="blackCircle"></div>
     </div>
+
+    <script>
+        function positionBlackCircle() {
+            const yellow = document.getElementById('yellowCircle');
+            const black = document.getElementById('blackCircle');
+            const container = document.querySelector('.container');
+            
+            // Récupérer la position du jaune par rapport au conteneur
+            const containerRect = container.getBoundingClientRect();
+            const yellowRect = yellow.getBoundingClientRect();
+            
+            // Centre du jaune par rapport au conteneur
+            const yellowCenterX = yellowRect.left + yellowRect.width / 2 - containerRect.left;
+            const yellowCenterY = yellowRect.top + yellowRect.height / 2 - containerRect.top;
+            
+            // Positionner le noir : à droite du jaune et en haut
+            const blackX = yellowCenterX + 200; // 200px à droite
+            const blackY = yellowCenterY - 150; // 150px au-dessus
+            
+            // Appliquer la position en pourcentage ou en px
+            black.style.left = blackX + 'px';
+            black.style.top = blackY + 'px';
+        }
+        
+        window.addEventListener('load', positionBlackCircle);
+        window.addEventListener('resize', positionBlackCircle);
+    </script>
 </body>
 </html>

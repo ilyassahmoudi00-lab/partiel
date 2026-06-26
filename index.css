@@ -13,14 +13,40 @@ body {
 }
 
 .container {
+    width: 100%;
+    height: 100vh;
     display: flex;
-    gap: 30px;
+    justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-.circle {
+/* Premier rond - bleu en haut à gauche */
+.circle.blue {
+    position: absolute;
+    top: 50px;
+    left: 50px;
     width: 100px;
     height: 100px;
-    background: #333;
+    background: blue;
+    border-radius: 50%;
+}
+
+/* Deuxième rond - jaune au centre */
+.circle.yellow {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    border-radius: 50%;
+    border: None
+    ;
+}
+
+/* Troisième rond - noir à droite du jaune et en haut */
+.circle.black {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: black;
     border-radius: 50%;
 }
